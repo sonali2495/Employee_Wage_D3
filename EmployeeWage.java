@@ -1,21 +1,25 @@
 package com.bridgelabz.Fellowship_Batch;
 
 public class EmployeeWage {
+	public static final int IsPartTime = 1;
+	public static final int IsFullTime = 2;
+	public static final int EmpRatePerHour = 20;
 
 	public static void main(String[] args) {
-		int IsPartTime = 1;
-		int IsFullTime = 2;
-		int EmpRatePerHour = 20;
 		int empHrs = 0;
 		int empWage = 0;
 
-		double empCheck = Math.floor(Math.random() * 10) % 3;
-		if (empCheck == IsPartTime)
+		int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+		switch (empCheck) {
+		case IsPartTime:
 			empHrs = 4;
-		else if (empCheck == IsFullTime)
+			break;
+		case IsFullTime:
 			empHrs = 8;
-		else
+			break;
+		default:
 			empHrs = 0;
+		}
 		empWage = empHrs * EmpRatePerHour;
 		System.out.println("Employee Wage= " + empWage);
 	}
