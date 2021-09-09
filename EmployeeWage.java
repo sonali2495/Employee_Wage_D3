@@ -1,14 +1,15 @@
 package com.bridgelabz.Fellowship_Batch;
 
 public class EmployeeWage {
-	public static final int IsPartTime = 1;
-	public static final int IsFullTime = 2;
-	public static final int EmpRatePerHour = 20;
-	public static final int numOfWorkingDays = 2;
-	public static final int maxHrsInMonth = 10;
 
-	public static void main(String[] args) {
-		int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
+	final int IsPartTime = 1;
+	final int IsFullTime = 2;
+	final int EmpRatePerHour = 20;
+	final int numOfWorkingDays = 20;
+	final int maxHrsInMonth = 100;
+
+	void calculateWage() {
+		int empHrs, totalEmpHrs = 0, totalWorkingDays = 0;
 		while (totalEmpHrs <= maxHrsInMonth && totalWorkingDays < numOfWorkingDays) {
 			totalWorkingDays++;
 			int empCheck = (int) Math.floor(Math.random() * 10 % 3);
@@ -22,10 +23,16 @@ public class EmployeeWage {
 				empHrs = 0;
 			}
 			totalEmpHrs += empHrs;
-			System.out.println("Days#: " + totalWorkingDays + "Employee Hour: " + empHrs);
+			System.out.println("Day: " + totalWorkingDays + " Employee Hour: " + empHrs);
 		}
 		int totalEmpWage = totalEmpHrs + EmpRatePerHour;
 		System.out.println("Total Employee Wage " + totalEmpWage);
+
+	}
+
+	public static void main(String[] args) {
+		EmployeeWage e = new EmployeeWage();
+		e.calculateWage();
 	}
 
 }
