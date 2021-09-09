@@ -5,10 +5,12 @@ public class EmployeeWage {
 	final int IsPartTime = 1;
 	final int IsFullTime = 2;
 	final int EmpRatePerHour = 20;
-	final int numOfWorkingDays = 20;
-	final int maxHrsInMonth = 100;
+	int numOfWorkingDays;
+	int maxHrsInMonth;
 
-	void calculateWage() {
+	void calculateWage(int workingDays, int workingHours) {
+		this.numOfWorkingDays = workingDays;
+		this.maxHrsInMonth = workingHours;
 		int empHrs, totalEmpHrs = 0, totalWorkingDays = 0;
 		while (totalEmpHrs <= maxHrsInMonth && totalWorkingDays < numOfWorkingDays) {
 			totalWorkingDays++;
@@ -31,8 +33,16 @@ public class EmployeeWage {
 	}
 
 	public static void main(String[] args) {
-		EmployeeWage e = new EmployeeWage();
-		e.calculateWage();
+		System.out.println("Employee Wage for Company 1 is:");
+		EmployeeWage company1 = new EmployeeWage();
+		company1.calculateWage(100, 20);
+		System.out.println("\nEmployee Wage for Company 2 is:");
+		EmployeeWage company2 = new EmployeeWage();
+		company2.calculateWage(120, 25);
+		System.out.println("\nEmployee Wage for Company 3 is:");
+		EmployeeWage company3 = new EmployeeWage();
+		company3.calculateWage(150, 30);
+
 	}
 
 }
